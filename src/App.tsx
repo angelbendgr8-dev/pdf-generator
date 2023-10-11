@@ -86,7 +86,7 @@ function App() {
   return (
     <>
       <div className="card">
-        <button onClick={() => generate()}>Generate</button>
+        <button onClick={() => generate()}>Print Pdf</button>
       </div>
       <div>
         <Charts data={newdata} />
