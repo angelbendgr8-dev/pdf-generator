@@ -11,7 +11,7 @@ const assetUrl =
   "https://api.usa.gov/crime/fbi/cde/arrest/state/AK/all?from=2015&to=2020&API_KEY=iiHnOKfno2Mgkt5AynpvPpUQTEyxE77jo1RU8PIv";
 
 function App() {
-  const { data: apiData, error } = useFetch<any>(assetUrl);
+  const { data: apiData } = useFetch<any>(assetUrl);
   const [newdata, setNewdata] = useState<any>([]);
   useEffect(() => {
     console.log(apiData);
@@ -19,7 +19,7 @@ function App() {
       const { data_year, Burglary } = offence;
       return [data_year, Burglary];
     });
-   
+
     const data = union([["x", ""]], graphData);
     console.log(data);
     setNewdata(data);

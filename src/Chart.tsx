@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { Chart } from "react-google-charts";
 import { isEmpty } from "lodash";
 
