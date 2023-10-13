@@ -27,17 +27,17 @@ function App() {
 
   const generate = async () => {
     const doc = new jsPDF("p", "px");
-
+    var width = doc.internal.pageSize.getWidth() - 15;
     const headers: any = document.getElementsByClassName("header");
     const chartheader = await toPng(headers.item(0));
-    doc.addImage(chartheader, "PNG", 10, 5, 0 ,10);
+    doc.addImage(chartheader, "PNG", 10, 5, width ,10);
     const elements: any = document.getElementsByClassName("chartPage");
     const chartImage = await toPng(elements.item(0));
-    doc.addImage(chartImage, "PNG", 10, 20, 400, 200);
+    doc.addImage(chartImage, "PNG", 10, 20, width, 200);
 
     const footer: any = document.getElementsByClassName("footer");
     const chartfooter = await toPng(footer.item(0));
-    doc.addImage(chartfooter, "PNG", 10, doc.internal.pageSize.height - 25, 430, 20);
+    doc.addImage(chartfooter, "PNG", 10, doc.internal.pageSize.height - 25, width, 20);
 
     doc.save(`crimechart.pdf`); // (6)
   };
